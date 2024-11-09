@@ -21,6 +21,7 @@ export async function verifyToken(req, res, next) {
     req.user = usuarioConvertido.usuario;
     req.idUsuario = usuarioConvertido.id_usuario;
     req.costoHora = usuarioConvertido.costo_hora;
+    req.idRol = usuarioConvertido.id_rol;
 
     next();
   } catch (error) {

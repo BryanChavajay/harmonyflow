@@ -44,6 +44,7 @@ export async function obtenerUsuariosPaginados(page = 1, pageSize = 10) {
     limit: pageSize,
     order: [["nombre", "ASC"]],
     attributes: { exclude: ["id_usuario", "contrasenia"] },
+    where: { eliminado: false },
   });
 
   return {
@@ -57,7 +58,7 @@ export async function obtenerUsuariosPaginados(page = 1, pageSize = 10) {
 
 export async function buscarPorNombre(nombreUsuario) {
   const usuario = await Usuario.findAll({
-    where: { nombre: { [Op.like]: `%${nombreUsuario}%` } },
+    where: { nombre: { [Op.like]: `%${nombreUsuario}%` }, eliminado: false },
     attributes: { exclude: ["id_usuario", "contrasenia"] },
   });
   return usuario;

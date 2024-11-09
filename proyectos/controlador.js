@@ -12,7 +12,7 @@ import { buscarParcialPorId, obtenerPorUuid } from "../usuarios/modelo.js";
 export async function obtenerProyectos(req, res) {
   try {
     const page = parseInt(req.query.page) || 1;
-    const pageSize = parseInt(req.query.pageSize) || 1;
+    const pageSize = parseInt(req.query.pageSize) || 10;
 
     const proyectos = await buscarPorPagina(page, pageSize);
 
@@ -119,6 +119,7 @@ export async function registrarProyecto(req, res) {
     const usuarioConvertido = usuarioLider.toJSON();
 
     validarPeticion.data.id_usuario_lider = usuarioConvertido.id_usuario;
+    validarPeticion.data.eliminado = false;
 
     const proyectoRegistrado = await crearProyecto(validarPeticion.data);
 
@@ -175,6 +176,38 @@ export async function modificarProyecto(req, res) {
       status: 200,
       message: "Proyecto actualizado con exito",
       data: proyectoActualizado.proyectoActualizado,
+    });
+  } catch (error) {
+    res.status(200).json({
+      status: 200,
+      message: "Rol creado con exito",
+      data: usuarioCreado.usuarioActualizado,
+    });
+  }
+}
+
+export async function eliminarProyecto(req, res) {
+  try {
+    const id = parseInt(req.query.id);
+
+    const proyectoEliminar = {
+      id_proyecto: id,
+      eliminado: true,
+      activo: false,
+    };
+
+    const proyectoActualizado = await actualizarProyecto(proyectoEliminar);
+
+    if (proyectoActualizado.filasActualizadas === 0) {
+      return res.status(404).json({
+        status: 404,
+        message: "No se encontró el recurso",
+      });
+    }
+
+    res.status(200).json({
+      status: 200,
+      message: "Se elimino el proyecto",
     });
   } catch (error) {
     res.status(200).json({

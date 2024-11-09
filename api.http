@@ -73,7 +73,7 @@ GET {{HOST}}/usuarios/buscar?codigo=e0bc75eb-8292-4bec-9db1-0baadc18906c
 Authorization: Bearer {{TOKEN}}
 
 ### Ruta para consultar usuario por nombre
-GET {{HOST}}/usuarios/buscarnombre?nombre=Bryan Donald
+GET {{HOST}}/usuarios/buscarnombre?nombre=Pedro
 Authorization: Bearer {{TOKEN}}
 
 ### Ruta para crear un nuevo usuario
@@ -82,9 +82,9 @@ Authorization: Bearer {{TOKEN}}
 Content-Type: application/json
 
 {
-  "nombre": "Pedro Prueba",
-  "usuario": "pedrop",
-  "correo": "pedrop@gmail.com",
+  "nombre": "Luis Prueba",
+  "usuario": "luisp",
+  "correo": "luisp@gmail.com",
   "contrasenia": "123",
   "esta_activo": true,
   "id_rol": 8,
@@ -107,6 +107,11 @@ Content-Type: application/json
     "codigo_usuario": "393898b5-3f6b-4050-a755-5ec3b10f6aa9"
 }
 
+### Ruta para eliminar un usuario
+DELETE {{HOST}}/usuarios/?id=02b3f5d4-830b-4d13-9e5e-9e9aea7954ce
+Authorization: Bearer {{TOKEN}}
+Content-Type: application/json
+
 ### Ruta para crear un nuevo proyecto
 POST {{HOST}}/proyectos/
 Authorization: Bearer {{TOKEN}}
@@ -128,7 +133,7 @@ GET {{HOST}}/proyectos/
 Authorization: Bearer {{TOKEN}}
 
 ### Ruta para consultar proyectos por nombre
-GET {{HOST}}/proyectos/nombre?nombre=Prueba
+GET {{HOST}}/proyectos/nombre?nombre=Aplicacion
 Authorization: Bearer {{TOKEN}}
 
 ### Ruta para consultar proyectos por id
@@ -155,6 +160,11 @@ Content-Type: application/json
   "activo": false,
   "id_usuario_lider": "e0bc75eb-8292-4bec-9db1-0baadc18906c"
 }
+
+### Ruta para eliminar un proyecto
+DELETE {{HOST}}/proyectos/?id=2
+Authorization: Bearer {{TOKEN}}
+Content-Type: application/json
 
 ### Ruta para consultar lineas desarrollo
 GET {{HOST}}/lineas/

@@ -9,6 +9,7 @@ export async function buscarPorPagina(page = 1, pageSize = 1) {
     offset: OFFSET,
     limit: pageSize,
     order: [["nombre", "ASC"]],
+    where: { eliminado: false },
   });
 
   return {
@@ -27,7 +28,7 @@ export async function buscarPorId(idProyecto) {
 
 export async function buscarPorNombre(nombreProyecto) {
   const proyectos = await Proyecto.findAll({
-    where: { nombre: { [Op.like]: `%${nombreProyecto}%` } },
+    where: { nombre: { [Op.like]: `%${nombreProyecto}%` }, eliminado: false },
   });
   return proyectos;
 }

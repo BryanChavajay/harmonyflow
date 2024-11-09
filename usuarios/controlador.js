@@ -11,13 +11,15 @@ import {
   buscarPorCorreoUsuario,
 } from "./modelo.js";
 import { crearUsuariLinea } from "../lineas/modelo.js";
+import { obtenerModulosRol } from "../roles/modelo.js";
 
-export function verificar(req, res) {
+export async function verificar(req, res) {
   try {
+    const permisos = await obtenerModulosRol(req.idRol);
     res.status(200).json({
       status: 200,
       message: "Bievenido de nuevo",
-      usuario: req.user,
+      usuario: { usuario: req.user, permisos },
     });
   } catch (error) {
     console.log(error);
@@ -141,6 +143,7 @@ export async function crearNuevoUsuario(req, res) {
     );
 
     validarPeticion.data.contrasenia = contraseniaEncriptada;
+    validarPeticion.data.eliminado = false;
 
     const usuarioCreado = await crearUsuario(validarPeticion.data);
 
@@ -195,6 +198,38 @@ export async function modificarUsuario(req, res) {
       status: 200,
       message: "Usuario actualizado con exito",
       data: usuarioCreado.usuarioActualizado,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      status: 500,
+      message: "Error interno del servidor, intente luego",
+    });
+  }
+}
+
+export async function eliminarUsuario(req, res) {
+  try {
+    const { id } = req.query;
+
+    const usuarioEliminar = {
+      codigo_usuario: id,
+      esta_activo: false,
+      eliminado: true,
+    };
+
+    const usuarioCreado = await actualizarUsuario(usuarioEliminar);
+
+    if (usuarioCreado.filasActualizadas === 0) {
+      return res.status(404).json({
+        status: 404,
+        message: "No se encontró el recurso",
+      });
+    }
+
+    res.status(200).json({
+      status: 200,
+      message: "Se elimino el usuario",
     });
   } catch (error) {
     console.log(error);

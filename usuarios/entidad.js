@@ -43,6 +43,10 @@ export const Usuario = sequelize.define(
       type: DataTypes.FLOAT,
       field: "costo_hora",
     },
+    eliminado: {
+      type: DataTypes.BOOLEAN,
+      field: "eliminado"
+    }
   },
   {
     timestamps: false,

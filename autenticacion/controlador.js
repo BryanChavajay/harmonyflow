@@ -25,6 +25,13 @@ export async function Login(req, res) {
 
     const usuarioConvertido = usuario.toJSON();
 
+    if (!usuarioConvertido.esta_activo) {
+      return res.status(404).json({
+        status: 404,
+        message: "Usuario sin permiso",
+      });
+    }
+
     const contraseniaCorrecta = await compararTexto(
       validarPeticion.data.password,
       usuarioConvertido.contrasenia

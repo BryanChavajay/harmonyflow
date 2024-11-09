@@ -31,7 +31,8 @@ CREATE TABLE "usuarios" (
   "contrasenia" VARCHAR(300),
   "esta_activo" BOOL,
   "id_rol" INT,
-  "costo_hora" FLOAT
+  "costo_hora" FLOAT,
+  "eliminado" BOOL
 );
 
 CREATE TABLE "lineas_desarrollo" (
@@ -48,7 +49,8 @@ CREATE TABLE "proyectos" (
   "fecha_inicio" DATE,
   "fecha_final" DATE,
   "activo" BOOL,
-  "id_usuario_lider" INT
+  "id_usuario_lider" INT,
+  "eliminado" BOOL
 );
 
 CREATE TABLE "usuarios_lineas" (

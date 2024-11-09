@@ -1,6 +1,6 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../core/db/db.js";
-import {LineaDesarrollo} from '../lineas/entidad.js'
+import { LineaDesarrollo } from "../lineas/entidad.js";
 
 export const Proyecto = sequelize.define(
   "Proyecto",
@@ -42,6 +42,10 @@ export const Proyecto = sequelize.define(
     id_usuario_lider: {
       type: DataTypes.INTEGER,
       field: "id_usuario_lider",
+    },
+    eliminado: {
+      type: DataTypes.BOOLEAN,
+      field: "eliminado",
     },
   },
   {

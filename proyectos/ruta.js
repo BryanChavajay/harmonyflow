@@ -6,6 +6,7 @@ import {
   obtenerProyectos,
   registrarProyecto,
   obtenerMisProyectos,
+  eliminarProyecto,
 } from "./controlador.js";
 
 export const crearEnrutadorProyecto = (security) => {
@@ -19,6 +20,7 @@ export const crearEnrutadorProyecto = (security) => {
   proyectoEnrutador.get("/:id", obtenerPorId);
   proyectoEnrutador.post("/", registrarProyecto);
   proyectoEnrutador.put("/", modificarProyecto);
+  proyectoEnrutador.delete("/", eliminarProyecto);
 
   return proyectoEnrutador;
 };
