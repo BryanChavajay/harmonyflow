@@ -2,6 +2,7 @@ import { DataTypes } from "sequelize";
 import { sequelize } from "../core/db/db.js";
 
 export const CasoPrueba = sequelize.define(
+  "CasoPrueba",
   {
     id_caso_prueba: {
       type: DataTypes.INTEGER,
@@ -41,6 +42,7 @@ export const CasoPrueba = sequelize.define(
 );
 
 export const PruebaAutomatizada = sequelize.define(
+  "PruebaAuto",
   {
     id_prueba_automatizada: {
       type: DataTypes.INTEGER,
@@ -80,6 +82,7 @@ export const PruebaAutomatizada = sequelize.define(
 );
 
 export const CampoPrueba = sequelize.define(
+  "CampoPrueba",
   {
     id_campo_prueba: {
       type: DataTypes.INTEGER,
@@ -111,6 +114,7 @@ export const CampoPrueba = sequelize.define(
 );
 
 export const Error = sequelize.define(
+  "Error",
   {
     id_error: {
       type: DataTypes.INTEGER,

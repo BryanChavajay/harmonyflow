@@ -1,5 +1,5 @@
 @HOST = http://localhost:3001
-@TOKEN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYnJ5YW5jIiwicmFuZG9tIjoiZTBiYzc1ZWItODI5Mi00YmVjLTlkYjEtMGJhYWRjMTg5MDZjIiwiaWF0IjoxNzMxMDM1OTQ3LCJleHAiOjE3MzEwNjQ3NDd9.oIxMnKOEUCgcAXBBn1MhBVLrBulLDTSwps1a-LJmxgA
+@TOKEN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoicGVkcm9wIiwicmFuZG9tIjoiYjljZTg2ZTctYTc5Yy00M2UxLWEwMjktYzU2MDJmMDg0MTQ4IiwiaWF0IjoxNzMxMTIyMTMxLCJleHAiOjE3MzExNTA5MzF9.MnQRGdmO0b4MhQf7l2xNWz1tQFQ4PlQRj5sZER5pOSc
 
 ### Ruta para verificar si el token esta vigente aun
 POST {{HOST}}/usuarios/verificar
@@ -214,7 +214,7 @@ POST {{HOST}}/auth/
 Content-Type: application/json
 
 {
-    "username": "bryanc",
+    "username": "pedrop",
     "password": "123"
 }
 
@@ -289,6 +289,79 @@ Authorization: Bearer {{TOKEN}}
 ### Ruta para consultar las horas registradas del usuario
 GET {{HOST}}/tareas/horaproyecto?id=2
 Authorization: Bearer {{TOKEN}}
+
+### Ruta para registrar una caso de prueba
+POST {{HOST}}/pruebas/
+Authorization: Bearer {{TOKEN}}
+Content-Type: application/json
+
+{
+  "id_proyecto": 2,
+  "nombre_caso": "Primer Caso de prueba Pedro",
+  "descripcion_caso": "Descipción del primer caso de prueba de Pedro",
+  "criterios_aceptacion": "Debe de retornar una JSON",
+  "prueba_automatizada": {
+    "estado_esperado": 200,
+    "campos": [
+        {
+            "tipo_dato": 1,
+            "nombre_campo": "nombre",
+            "contenido": "pedro"
+        },
+        {
+            "tipo_dato": 1,
+            "nombre_campo": "apellido",
+            "contenido": "juan"
+        }
+    ]
+  }
+}
+
+### Ruta para registrar un error
+POST {{HOST}}/pruebas/error
+Authorization: Bearer {{TOKEN}}
+Content-Type: application/json
+
+{
+  "id_caso_prueba": 3,
+  "descripcion": "Este es un error controlado 3",
+  "id_usuario_asignado": "393898b5-3f6b-4050-a755-5ec3b10f6aa9",
+  "fecha_reporte": "2024-11-20"
+}
+
+### Ruta para modificar un error
+PUT {{HOST}}/pruebas/error
+Authorization: Bearer {{TOKEN}}
+Content-Type: application/json
+
+{
+  "id_error": 2,
+  "resuelto": false
+}
+
+### Ruta para obtener mis casos de prueba
+GET {{HOST}}/pruebas/casos
+Authorization: Bearer {{TOKEN}}
+
+### Ruta para obtener mis errores asignados
+GET {{HOST}}/pruebas/errores
+Authorization: Bearer {{TOKEN}}
+
+### Ruta para obtener un caso de prueba
+GET {{HOST}}/pruebas/3
+Authorization: Bearer {{TOKEN}}
+
+### Ruta para obtener un caso de prueba
+PUT {{HOST}}/pruebas/
+Authorization: Bearer {{TOKEN}}
+Content-Type: application/json
+
+{
+  "id_prueba_automatizada": 1,
+  "cuerpo_devuelto": "Cuerpo devuelto",
+  "estado_devuelto": 200,
+  "correcto": true
+}
 
 ### 
 GET {{HOST}}/roles/modulos

@@ -89,7 +89,7 @@ CREATE TABLE "casos_prueba" (
   "id_proyecto" INT,
   "id_tarea" INT,
   "nombre_caso" VARCHAR(75),
-  "descipcion_caso" VARCHAR(75),
+  "descripcion_caso" VARCHAR(75),
   "criterios_aceptacion" TEXT,
   "id_usuario_crea" INT
 );

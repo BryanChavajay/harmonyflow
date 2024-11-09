@@ -9,6 +9,7 @@ import { crearEnrutadorProyecto } from "./proyectos/ruta.js";
 import { crearEnrutadorLinea } from "./lineas/ruta.js";
 import { crearEnrutadorLogin } from "./autenticacion/ruta.js";
 import { crearEnrutadorTarea } from "./tareas/ruta.js";
+import { crearEnrutadorPruebas } from "./pruebas/ruta.js";
 
 const app = express();
 
@@ -19,17 +20,13 @@ app.disable("x-powered-by");
 app.get("/", (req, res) => {
   res.send("Hello world!");
 });
+app.use("/auth", crearEnrutadorLogin());
 app.use("/roles", crearEnrutadorRoles(verifyToken));
 app.use("/usuarios", crearEnrutadorUsuario(verifyToken));
 app.use("/proyectos", crearEnrutadorProyecto(verifyToken));
 app.use("/lineas", crearEnrutadorLinea(verifyToken));
-app.use("/auth", crearEnrutadorLogin(verifyToken));
 app.use("/tareas", crearEnrutadorTarea(verifyToken));
-// app.use("/adopters", createAdoptersRouter(verifyToken));
-// app.use("/adoptions", createAdoptionsRouter(verifyToken));
-// app.use("/pets", createPetsRouter(verifyToken));
-// app.use("/users", createUsersRouter(verifyToken));
-// app.use("/auth", createAuthRouter());
+app.use("/pruebas", crearEnrutadorPruebas(verifyToken));
 
 app.listen(PORT, () => {
   console.log(`server listening on port http://localhost:${PORT}`);
