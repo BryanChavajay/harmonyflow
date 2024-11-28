@@ -125,7 +125,7 @@ export async function registrarProyecto(req, res) {
 
     res.status(200).json({
       status: 200,
-      message: "Rol creado con exito",
+      message: "Proyecto registrado con éxito",
       data: proyectoRegistrado,
     });
   } catch (error) {
@@ -174,7 +174,7 @@ export async function modificarProyecto(req, res) {
 
     res.status(200).json({
       status: 200,
-      message: "Proyecto actualizado con exito",
+      message: "Proyecto actualizado con éxito",
       data: proyectoActualizado.proyectoActualizado,
     });
   } catch (error) {

@@ -9,7 +9,7 @@ export async function obtenerCostoProyectos(req, res) {
 
     res.status(200).json({
       status: 200,
-      message: "Peticion completada",
+      message: "Petición completada",
       data: proyectos,
     });
   } catch (error) {
@@ -27,7 +27,7 @@ export async function obtenerCantidaPruebasProyectos(req, res) {
 
     res.status(200).json({
       status: 200,
-      message: "Peticion completada",
+      message: "Petición completada",
       data: proyectos,
     });
   } catch (error) {

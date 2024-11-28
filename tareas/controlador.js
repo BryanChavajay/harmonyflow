@@ -97,7 +97,7 @@ export async function quitarTarea(req, res) {
 
     res.status(200).json({
       status: 200,
-      message: "Peticion completada",
+      message: "Tarea eliminada",
     });
   } catch (error) {
     console.log(error);
@@ -183,7 +183,7 @@ export async function actualizarTareaCompleta(req, res) {
 
     res.status(200).json({
       status: 200,
-      message: "Tarea creada con exito",
+      message: "Tarea actualizada con exito",
       data: tareaActualizada.tareaActualizada,
     });
   } catch (error) {
@@ -218,7 +218,7 @@ export async function actualizarTareaEnProgreso(req, res) {
 
     res.status(200).json({
       status: 200,
-      message: "Tarea creada con exito",
+      message: "Tarea actualizada con exito",
       data: tareaActualizada.tareaActualizada,
     });
   } catch (error) {
@@ -255,7 +255,7 @@ export async function actualizarTareaEnCurso(req, res) {
 
     res.status(200).json({
       status: 200,
-      message: "Tarea creada con exito",
+      message: "Tarea actualizada con exito",
       data: tareaActualizada.tareaActualizada,
     });
   } catch (error) {
@@ -292,7 +292,7 @@ export async function actualizarTareaTerminada(req, res) {
 
     res.status(200).json({
       status: 200,
-      message: "Tarea creada con exito",
+      message: "Tarea actualizada con exito",
       data: tareaActualizada.tareaActualizada,
     });
   } catch (error) {
@@ -323,7 +323,7 @@ export async function registrarHora(req, res) {
 
     res.status(200).json({
       status: 200,
-      message: "Tarea creada con exito",
+      message: "Hora de trabajo registrada",
       data: horaCreada,
     });
   } catch (error) {

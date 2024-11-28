@@ -102,7 +102,7 @@ export async function registrarLinea(req, res) {
 
     res.status(200).json({
       status: 200,
-      message: "Peticion completada",
+      message: "Linea registrada con éxito",
       data: lineaCreada,
     });
   } catch (error) {
@@ -136,7 +136,7 @@ export async function actualizarLinea(req, res) {
 
     res.status(200).json({
       status: 200,
-      message: "Peticion completada",
+      message: "Linea actualizada con éxito",
       data: lineaActualizada.lineaActualizada,
     });
   } catch (error) {
@@ -197,7 +197,7 @@ export async function registrarUsuarioLinea(req, res) {
 
     res.status(200).json({
       status: 200,
-      message: "Peticion completada",
+      message: "Usuario registrado con exito en la linea",
       linea_creada: lineaCreada,
     });
   } catch (error) {
@@ -224,7 +224,7 @@ export async function eliminarUsuarioLinea(req, res) {
 
     res.status(200).json({
       status: 200,
-      message: "Peticion completada",
+      message: "Usuario eliminado",
     });
   } catch (error) {
     console.log(error);

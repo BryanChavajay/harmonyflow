@@ -125,7 +125,7 @@ export async function registrarCasoPrueba(req, res) {
 
     res.status(200).json({
       status: 200,
-      message: "Caso registrado con exito",
+      message: "Caso registrado con éxito",
       data: casoPruebaCreado,
     });
   } catch (error) {
@@ -169,7 +169,7 @@ export async function registrarError(req, res) {
 
     res.status(200).json({
       status: 200,
-      message: "Caso registrado con exito",
+      message: "Error registrado con éxito",
       data: errorCreado,
     });
   } catch (error) {
@@ -206,7 +206,7 @@ export async function modificarError(req, res) {
 
     res.status(200).json({
       status: 200,
-      message: "Caso registrado con exito",
+      message: "Error actualizado con éxito",
       data: errorActualizado.errorActualizado,
     });
   } catch (error) {
@@ -242,7 +242,7 @@ export async function modificarPrueba(req, res) {
 
     res.status(200).json({
       status: 200,
-      message: "Caso registrado con exito",
+      message: "Prueba modificada con éxito",
       data: pruebaActualizada.pruebaActualizada,
     });
   } catch (error) {

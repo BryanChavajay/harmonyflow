@@ -156,7 +156,7 @@ export async function crearNuevoUsuario(req, res) {
 
     res.status(200).json({
       status: 200,
-      message: "Rol creado con exito",
+      message: "Usuario registrado con exito",
       data: usuarioSinId,
     });
   } catch (error) {
