@@ -195,6 +195,41 @@ export async function actualizarTareaCompleta(req, res) {
   }
 }
 
+export async function actualizarTareaEnProgreso(req, res) {
+  try {
+    const { id } = req.query;
+    
+    const ESTADO_EN_PROGRESO = 1;
+
+
+    const dataTarea = {
+      id_tarea: id,
+      id_estado: ESTADO_EN_PROGRESO,
+    };
+
+    const tareaActualizada = await actualizarTarea(dataTarea);
+
+    if (tareaActualizada.filasActualizadas === 0) {
+      return res.status(404).json({
+        status: 404,
+        message: "No se pudo actualizar la tarea",
+      });
+    }
+
+    res.status(200).json({
+      status: 200,
+      message: "Tarea creada con exito",
+      data: tareaActualizada.tareaActualizada,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      status: 500,
+      message: "Error interno del servidor, intente luego",
+    });
+  }
+}
+
 export async function actualizarTareaEnCurso(req, res) {
   try {
     const { id } = req.query;

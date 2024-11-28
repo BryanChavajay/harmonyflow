@@ -4,6 +4,7 @@ import {
   actualizarTareaCompleta,
   actualizarTareaEnCurso,
   actualizarTareaTerminada,
+  actualizarTareaEnProgreso,
   obHorasUsuarioProyecto,
   obTareasAgrupadasUsuario,
   obtenerHorasUsuario,
@@ -21,6 +22,7 @@ export const crearEnrutadorTarea = (security) => {
   enrutadorTarea.put("/", actualizarTareaCompleta);
   enrutadorTarea.delete("/", quitarTarea);
   enrutadorTarea.get("/", obtenerTareasUsuario);
+  enrutadorTarea.put("/progreso", actualizarTareaEnProgreso);
   enrutadorTarea.put("/curso", actualizarTareaEnCurso);
   enrutadorTarea.put("/completada", actualizarTareaTerminada);
   enrutadorTarea.get("/agrupadas", obTareasAgrupadasUsuario);

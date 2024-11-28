@@ -1,5 +1,5 @@
 @HOST = http://localhost:3001
-@TOKEN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoicGVkcm9wIiwicmFuZG9tIjoiYjljZTg2ZTctYTc5Yy00M2UxLWEwMjktYzU2MDJmMDg0MTQ4IiwiaWF0IjoxNzMxMTIyMTMxLCJleHAiOjE3MzExNTA5MzF9.MnQRGdmO0b4MhQf7l2xNWz1tQFQ4PlQRj5sZER5pOSc
+@TOKEN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYnJ5YW5jIiwicmFuZG9tIjoiZTBiYzc1ZWItODI5Mi00YmVjLTlkYjEtMGJhYWRjMTg5MDZjIiwiaWF0IjoxNzMyNzYxMDY0LCJleHAiOjE3MzI3ODk4NjR9.3JKGd85lo9cdOWKTKaiJA_Lo46azTvOn9NjziWZUVfI
 
 ### Ruta para verificar si el token esta vigente aun
 POST {{HOST}}/usuarios/verificar
@@ -137,7 +137,7 @@ GET {{HOST}}/proyectos/nombre?nombre=Aplicacion
 Authorization: Bearer {{TOKEN}}
 
 ### Ruta para consultar proyectos por id
-GET {{HOST}}/proyectos/1
+GET {{HOST}}/proyectos/4
 Authorization: Bearer {{TOKEN}}
 
 ### Ruta para consultar mis proyectos
@@ -219,7 +219,7 @@ Authorization: Bearer {{TOKEN}}
 GET {{HOST}}/lineas/usuarioslinea?id=2
 Authorization: Bearer {{TOKEN}}
 
-### Ruta para consultar los usuarios de una linea
+### Ruta para hacer login
 POST {{HOST}}/auth/
 Content-Type: application/json
 
@@ -263,6 +263,10 @@ Authorization: Bearer {{TOKEN}}
 
 ### Ruta para traer las tareas del usuario
 GET {{HOST}}/tareas/
+Authorization: Bearer {{TOKEN}}
+
+### Ruta para actualizar el estado de una tarea a EN PROGRESO
+PUT {{HOST}}/tareas/progreso?id=5
 Authorization: Bearer {{TOKEN}}
 
 ### Ruta para actualizar el estado de una tarea a EN CURSO
@@ -358,7 +362,7 @@ GET {{HOST}}/pruebas/errores
 Authorization: Bearer {{TOKEN}}
 
 ### Ruta para obtener un caso de prueba
-GET {{HOST}}/pruebas/3
+GET {{HOST}}/pruebas/5
 Authorization: Bearer {{TOKEN}}
 
 ### Ruta para obtener un caso de prueba
@@ -372,6 +376,14 @@ Content-Type: application/json
   "estado_devuelto": 200,
   "correcto": true
 }
+
+### Ruta para consultar el costo de los proyectos
+GET {{HOST}}/estadisticas/costoproyectos
+Authorization: Bearer {{TOKEN}}
+
+### Ruta para consultar el costo de los proyectos
+GET {{HOST}}/estadisticas/pruebasproyectos
+Authorization: Bearer {{TOKEN}}
 
 ### 
 GET {{HOST}}/roles/modulos

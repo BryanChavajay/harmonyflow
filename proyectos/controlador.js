@@ -43,20 +43,20 @@ export async function obtenerPorId(req, res) {
       });
     }
 
-    const proyectoConvertido = proyecto.toJSON();
+    // const proyectoConvertido = proyecto.toJSON();
 
-    const usuarioLider = await buscarParcialPorId(
-      proyectoConvertido.id_usuario_lider
-    );
+    // const usuarioLider = await buscarParcialPorId(
+    //   proyectoConvertido.id_usuario_lider
+    // );
 
-    delete proyectoConvertido.id_usuario_lider;
+    // delete proyectoConvertido.id_usuario_lider;
 
-    proyectoConvertido.usuario_lider = usuarioLider.toJSON();
+    // proyectoConvertido.usuario_lider = usuarioLider.toJSON();
 
     res.json({
       status: 200,
       message: "Peticion completada",
-      data: proyectoConvertido,
+      data: proyecto,
     });
   } catch (error) {
     console.log(error);
@@ -105,20 +105,20 @@ export async function registrarProyecto(req, res) {
       });
     }
 
-    const usuarioLider = await obtenerPorUuid(
-      validarPeticion.data.id_usuario_lider
-    );
+    // const usuarioLider = await obtenerPorUuid(
+    //   validarPeticion.data.id_usuario_lider
+    // );
 
-    if (!usuarioLider) {
-      return res.status(400).json({
-        status: 400,
-        message: "El usuario no esta registrado",
-      });
-    }
+    // if (!usuarioLider) {
+    //   return res.status(400).json({
+    //     status: 400,
+    //     message: "El usuario no esta registrado",
+    //   });
+    // }
 
-    const usuarioConvertido = usuarioLider.toJSON();
+    // const usuarioConvertido = usuarioLider.toJSON();
 
-    validarPeticion.data.id_usuario_lider = usuarioConvertido.id_usuario;
+    // validarPeticion.data.id_usuario_lider = usuarioConvertido.id_usuario;
     validarPeticion.data.eliminado = false;
 
     const proyectoRegistrado = await crearProyecto(validarPeticion.data);
@@ -148,20 +148,20 @@ export async function modificarProyecto(req, res) {
       });
     }
 
-    const usuarioLider = await obtenerPorUuid(
-      validarPeticion.data.id_usuario_lider
-    );
+    // const usuarioLider = await obtenerPorUuid(
+    //   validarPeticion.data.id_usuario_lider
+    // );
 
-    if (!usuarioLider) {
-      return res.status(400).json({
-        status: 400,
-        message: "El usuario no esta registrado",
-      });
-    }
+    // if (!usuarioLider) {
+    //   return res.status(400).json({
+    //     status: 400,
+    //     message: "El usuario no esta registrado",
+    //   });
+    // }
 
-    const usuarioConvertido = usuarioLider.toJSON();
+    // const usuarioConvertido = usuarioLider.toJSON();
 
-    validarPeticion.data.id_usuario_lider = usuarioConvertido.id_usuario;
+    // validarPeticion.data.id_usuario_lider = usuarioConvertido.id_usuario;
 
     const proyectoActualizado = await actualizarProyecto(validarPeticion.data);
 

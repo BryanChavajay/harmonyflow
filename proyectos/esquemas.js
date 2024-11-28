@@ -8,7 +8,7 @@ const ProyectoEsquema = z.object({
   fecha_inicio: z.string().date(),
   fecha_final: z.string().date(),
   activo: z.boolean(),
-  id_usuario_lider: z.string(),
+  // id_usuario_lider: z.string(),
 });
 
 const ProyectoActualizadoEsquema = z.object({
@@ -20,7 +20,7 @@ const ProyectoActualizadoEsquema = z.object({
   fecha_inicio: z.string().date(),
   fecha_final: z.string().date(),
   activo: z.boolean(),
-  id_usuario_lider: z.string(),
+  // id_usuario_lider: z.string(),
 });
 
 export async function ValidarProyecto(input) {

@@ -65,6 +65,7 @@ export async function obUsuariosPorLinea() {
           {
             model: Usuario,
             attributes: ["codigo_usuario", "nombre", "correo", "costo_hora"],
+            where: { eliminado: false },
           },
         ],
       },
@@ -95,6 +96,7 @@ export async function obUsuariosDeLinea(idLinea) {
           {
             model: Usuario,
             attributes: ["codigo_usuario", "nombre", "correo", "costo_hora"],
+            where: { eliminado: false },
           },
         ],
       },
