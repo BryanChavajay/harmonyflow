@@ -1,4 +1,5 @@
 import express, { json } from "express";
+import cors from 'cors'
 import { PORT } from "./core/configuraciones.js";
 import { verifyToken } from "./core/middlewares/autenticacion.js";
 import { corsMiddleware } from "./core/middlewares/cors.js";
@@ -14,7 +15,8 @@ import { crearEnrutadorEstadisticas } from "./estadisticas/ruta.js";
 const app = express();
 
 app.use(json());
-app.use(corsMiddleware());
+//app.use(corsMiddleware());
+app.use(cors());
 app.disable("x-powered-by");
 
 app.get("/", (req, res) => {
